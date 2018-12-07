@@ -1,1 +1,45 @@
-
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+zuul:
+  sensitiveHeaders:
+#  ignored-services: microcloud-dept #用于屏蔽单个服务
+  prefix: /ProjectName
+  ignored-services: "*"   #屏蔽多个服务
+  routes:
+    api-demo:
+      path: /apiDemo/**
+      serviceId: demoservice
+    api-auth:
+      path: /apiAuth/**
+      serviceId: authserver
+    api-test:
+      path: /apiTest/**
+      serviceId: test-service
+    api-personal:
+      path: /apiPersonal/**
+      serviceId: personalservice
+    api-team:
+      path: /apiTeam/**
+      serviceId: teamservice
+    api-msg;
+      path: /apiMsg/**
+      serviceId: messageservice
+# ignored-patterns: /**/demo3/**,/**/demo2/**     #禁止访问
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 10000
+    connect-timeout-millis: 60000  
+#zuul自定义异常处理    
+  SendErrorFilter:
+    post: 
+      disable: true    
