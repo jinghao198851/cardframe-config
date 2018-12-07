@@ -11,4 +11,7 @@ login:
   wxKfptAppSecret: 212b6b0c8e0e9e487d628584b8be29a2
 info:
   app.name: authserver
-  company.name: baseframe 
+  company.name: baseframe
+ribbon:
+  eureka:
+    enabled: true 
