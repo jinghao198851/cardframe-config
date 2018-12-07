@@ -32,8 +32,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    password: jinghao
-    username: jinghao    
+    password: guest
+    username: guest    
   cloud:
     stream:
       bindings:
