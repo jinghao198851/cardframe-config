@@ -1,1 +1,80 @@
-
+env:
+  dev
+student:
+  name: Li_Lei
+  age: 17
+server:
+  port: 8001
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.micro.cloud.entity              # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.0.66:3306/universal_card?useUnicode=true&characterEncoding=UTF-8&multiStatementAllow=true
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+  redis:
+    host: 47.92.38.5
+    port: 6379
+    password: redis
+    pool:
+      maxActive: 600
+      maxWait: 1000
+      maxIdle: 300
+      minIdle: 0
+    timeout: 100000    
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: jinghao
+    username: jinghao    
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: exchange-msg        #绑定exchange
+          content-type: application/json   #解决序列化问题
+          group: group-A                   #解决集群都收到消息的问题
+        output:
+          destination: exchange-msg
+          content-type: application/json
+        input2:
+          destination: exchange-msg2
+          content-type: application/json
+          group: group-B
+        output2:
+          destination: exchange-msg2
+          content-type: application/json
+        regOutput:
+          destination: exchange-reg
+          content-type: application/json
+        replyInput:
+          destination: exchange-reply
+          content-type: application/json
+          group: group-D
+#         replyOutput: 
+#           destination: exchange-reply
+#           content-type: application/json
+feign:
+  hystrix:
+    enabled: true      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 7000
+  ConnectTimeout: 5000 
