@@ -43,3 +43,6 @@ zuul:
   SendErrorFilter:
     post: 
       disable: true    
+info:
+  app.name: gatewayservice
+  company.name: baseframe       
