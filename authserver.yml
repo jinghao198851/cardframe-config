@@ -9,7 +9,7 @@ login:
   wxGzhAppSecret: 479ccee19ceae2a281e0631907002ddf
   wxKfptAppId: wx77a3be2b980f9c1c
   wxKfptAppSecret: 212b6b0c8e0e9e487d628584b8be29a2
-  wxXcxQVAppId: wxde8ce3c0f22cb20d
+  wxXcxQJAppId: wxde8ce3c0f22cb20d
   wxXcxQJAppSecret: 720a95abefe2d4ec38f530810ce3eba5
 info:
   app.name: authserver
