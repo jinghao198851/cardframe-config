@@ -34,7 +34,6 @@ spring:
     port: 5672
     password: guest
     username: guest
-# Pay 小程序支付参数
 xcxpay:
   mch_id: 1531248501
   mchKey: 6764477B2AF94156A94ABCCFE07CC0BD
